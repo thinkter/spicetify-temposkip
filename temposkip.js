@@ -3,13 +3,21 @@ async function foo(t){
 	return audioData;
 }
 Spicetify.Player.addEventListener("songchange", async () => {
-	const data = Spicetify.Player.data || Spicetify.Queue;
-	const trackID = data.item.uri;
-	const a = await foo(trackID);
-	console.log(a.track.tempo);
-	if (a.track.tempo > 100){
-		Spicetify.Player.next();
-	}
+	bahh();
 });
 
 
+async function bahh(){
+	q = Spicetify.Queue.nextTracks;
+	console.log(q[0].contextTrack.uri);
+	for(i = 0 ; i < 10; i++){
+		Turi = q[i].contextTrack.uri;
+		console.log(Turi);
+		const a = await foo(Turi);
+		console.log(a.track.tempo);
+		if(a.track.tempo > 100){
+			await Spicetify.removeFromQueue([ { uri: Turi } ]);
+			console.log("removed");
+		}
+	}
+}
