@@ -15,7 +15,7 @@ async function bahh(){
 		console.log(Turi);
 		const a = await foo(Turi);
 		console.log(a.track.tempo);
-		if(a.track.tempo > 100){
+		if(a.track.tempo > 110){
 			await Spicetify.removeFromQueue([ { uri: Turi } ]);
 			console.log("removed");
 		}
